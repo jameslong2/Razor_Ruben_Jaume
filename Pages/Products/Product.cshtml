@@ -1,0 +1,58 @@
+﻿@page
+@model M05_UF3_P2_Template.Pages.Products.ProductModel
+@using M05_UF3_P2_Template.App_Code.Model
+@{
+}
+<style>
+    .Values{
+        display:none;
+    }
+    form p{
+        color:white;
+    }
+</style>
+<form method="post">
+    <button type="submit" class="btn btn-primary float-right"><span class="material-icons">save</span></button>
+    <p>Product Type</p>
+
+    <select id="Game_or_Video" onchange="ChangeDev()">
+        @*tengo que modificar el select mas tarde*@
+        <option value="0">Game</option>
+        <option value="1">Video</option>
+    </select>
+    <p>Summary</p>
+    <input type="text" asp-for="product.Summary" />
+    <p>Price</p>
+    <input type="number" step="any" asp-for="product.Price" />
+    <p>Developer</p>
+    <select name="Developer" id="Developer" onchange="ChangeDev()">
+        @foreach (Company item in Model.companies)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+    <p>Editor</p>
+    <select name="Editor" id="Editor" onchange="ChangeDev()">
+        @foreach (Company item in Model.companies)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+    <input type="number" id="DeveloperValue" asp-for="product.Developer_id" class="Values" />
+    <input type="number" id="EditorValue" asp-for="product.Editor_id" class="Values" />
+    <input type="number" id="GVValue" asp-for="product.Type" class="Values" />
+    @if (Model.product.Type == Product.TYPE.GAME)
+    {
+        <a class="btn btn-primary float-right" asp-page="/Products/Game" asp-route-id="@Model.Game_Id" title="Edit game">
+            <span class="material-icons text-white">edit</span>
+        </a>
+    }
+    else
+    {
+        <a class="btn btn-primary float-right" asp-page="/Products/Video" asp-route-id="@Model.Video_Id" title="Edit Video">
+            <span class="material-icons text-white">edit</span>
+        </a>
+    }
+
+</form>
+<script src="~/js/edit.js"></script>

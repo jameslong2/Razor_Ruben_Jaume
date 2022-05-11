@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - M05_UF3_P2_Template</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/animations.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <style>
+        .padre-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .links {
+            display: flex;
+            list-style: none;
+            padding:0;
+            margin:0;
+        }
+        .elnav {
+            background: #4287f5;
+        }
+        .contenedor {
+            background: #4287f5;
+            display: flex;
+            
+        }
+        .list-items{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .contenedor img{
+            width:50%;
+        }
+        .list-links {
+            color: ghostwhite;
+        }
+        .list-items{
+            margin-right:10%;
+        }
+        .cuerpo {
+            background: #002f7a;
+        }
+        .foter {
+            background: #0062ff;
+        }
+        body {
+            background: #0062ff;
+        }
+    </style>
+    <header>
+        <nav class="elnav">
+            <div class="contenedor">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/img/logo.png"/>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="padre-links">
+                    <ul class="links">
+                        <li class="list-items">
+                            <a class="list-links" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="list-items">
+                            <a class="list-links" asp-area="" asp-page="/Products/Searcher">Products</a>
+                        </li>
+                        <li class="list-items">
+                            <a class="list-links" asp-area="" asp-page="/Companies/Searcher">Companies</a>
+                        </li>
+                        <li class="list-items">
+                            <a class="list-links" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="cuerpo">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="foter">
+        <div class="container">
+            &copy; 2022 - CampusNet.es - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
